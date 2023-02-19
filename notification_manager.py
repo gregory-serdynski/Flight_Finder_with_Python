@@ -24,8 +24,8 @@ class NotificationManager:
         self.dept_date = dept_date
         self.return_date = return_date
 
-        self.send_message()
-        #self.send_email()
+        # self.send_message()
+        self.send_email()
 
     def send_message(self):
         client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
@@ -48,7 +48,7 @@ class NotificationManager:
                                     to_addrs=user["email"],
                                     msg=f"Subject:CHEAP FLIGHT SPOTTED!\n\nOnly {self.price}JPY to fly "
                                         f"from {ORIGIN_CITY}-{self.dept_iata} to {self.dest_city}-{self.dest_iata}, "
-                                        f"from {self.dept_date} to {self.return_date}.\n{self.create_link()}")
+                                        f"from {self.dept_date} to {self.return_date}.")
 
     def create_link(self):
         return f"https://www.google.com/travel/flights?q=Flights%20to%20{self.dest_iata}%20from%20{self.dept_iata}%20on%20{self.dept_date}%20through%20{self.return_date}"

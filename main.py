@@ -8,12 +8,13 @@ import data_manager as dm
 
 # ----------------- Register User ------------------ #
 
-user_choice = input("Do you want to register new user? Type 'y' or 'n': ")
+# user_choice = input("Do you want to register new user? Type 'y' or 'n': ")
 
-if user_choice == "y":
-    dm.register_user()
+# if user_choice == "y":
+#     dm.register_user()
 
 # ----------------- Search Flights ------------------ #
+print("Searching for flights. Please wait.")
 
 cities_data = dm.get_cities_data()
 destination_index = 0
@@ -33,7 +34,7 @@ for data in cities_data["flights"]:
     return_date = flight_data["route"][-1]["local_departure"].split("T")[0]
 
     flight_price = int(flight_data["fare"]["adults"])
-    minimal_price = cities_data["flights"][destination_index]["lowestPrice"]
+    minimal_price = cities_data["flights"][destination_index]["highestPrice"]
 
     # Checking if price is lower than required "lowest price"
     if flight_price <= minimal_price:
