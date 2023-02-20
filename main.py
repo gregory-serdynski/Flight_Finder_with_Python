@@ -34,10 +34,10 @@ for data in cities_data["flights"]:
     return_date = flight_data["route"][-1]["local_departure"].split("T")[0]
 
     flight_price = int(flight_data["fare"]["adults"])
-    minimal_price = cities_data["flights"][destination_index]["highestPrice"]
+    highest_price = cities_data["flights"][destination_index]["highestPrice"]
 
     # Checking if price is lower than required "lowest price"
-    if flight_price <= minimal_price:
+    if flight_price <= highest_price:
         print(f"We found cheap flight to {destination_city}.")
         send_notification(departure_city, departure_iata, destination_city, destination_iata,
                           flight_price, departure_date, return_date)

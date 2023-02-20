@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 import os
 from dotenv import load_dotenv
 
-load_dotenv("C:/Users/Gregory/PycharmProjects/a.env.txt")
+load_dotenv("env")
 TEQUILA_API = os.getenv("TEQUILA_API")
 
 TEQUILA_HEADERS = {"apikey": TEQUILA_API}

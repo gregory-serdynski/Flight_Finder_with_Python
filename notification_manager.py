@@ -4,12 +4,12 @@ from dotenv import load_dotenv
 import data_manager as dm
 import smtplib
 
-load_dotenv("C:/Users/Gregory/PycharmProjects/a.env.txt")
+load_dotenv("env")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
 
-EMAIL = "gregorytest50@gmail.com"
+EMAIL = "メール"
 PASSWORD = os.getenv("EMAIL_PASSWORD")
 ORIGIN_CITY = "Tokyo"
 
@@ -34,7 +34,7 @@ class NotificationManager:
                  f'Only ￥{self.price} to fly from {ORIGIN_CITY}-{self.dept_iata} '
                  f'to {self.dest_city}-{self.dest_iata}, from {self.dept_date} to {self.return_date}.',
             from_='whatsapp:+14155238886',
-            to='whatsapp:+818098185896'
+            to='whatsapp:<個人番号>'
         )
         # print(message.status)
 
